@@ -23,7 +23,7 @@ To rebuild the catalog from the original data tables:
     patch < source_html.patch
     php parse.php full.html > catalog.php
 
-To rebuild the spritesheet image and its catalog, from the gemoji source files (this step requires 
+To rebuild the spritesheet image and its catalog, from the gemoji source files (this step requires
 ImageMagick or GraphicsMagick for the compositing):
 
     php build_image.php
@@ -33,3 +33,8 @@ You can then use the catalogs to build the PHP map and the CSS file:
     php build_map.php > ../emoji.php
     php build_css.php > ../emoji.css
     php build_table.php > ../table.htm
+
+NOTE
+
+Fork of Benjamin De Almeida - https://github.com/Ant3iros
+Now emoji.php is a class generated : Emoji

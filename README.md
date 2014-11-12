@@ -20,49 +20,46 @@ you want to convert it to HTML for viewing on PCs, Android phones, older Macs, e
     <?php
         include('emoji.php');
 
+        $emoji = new Emoji;
 
-        # when you recieve text from a mobile device, convert it
-        # to the unified format.
+    #
+    # functions to convert incoming data into the unified format
+    #
 
-        $data = emoji_docomo_to_unified($data);   # DoCoMo devices
-        $data = emoji_kddi_to_unified($data);     # KDDI & Au devices
-        $data = emoji_softbank_to_unified($data); # Softbank & pre-iOS6 Apple devices
-        $data = emoji_google_to_unified($data);   # Google Android devices
+    $data = $emoji->emojiDocomoToUnified(       $text);
+    $data = $emoji->emojiKddiToUnified(         $text);
+    $data = $emoji->emojiSoftbankToUnified(     $text);
+    $data = $emoji->emojiGoogleToUnified(       $text);
+    $data = $emoji->emojiHtmlToUnified(         $text);
 
+    #
+    # functions to convert unified data into an outgoing format
+    #
 
-        # when sending data back to mobile devices, you can
-        # convert back to their native format.
+    $data = $emoji->emojiUnifiedToDocomo(       $text);
+    $data = $emoji->emojiUnifiedToKddi(         $text);
+    $data = $emoji->emojiUnifiedToSoftbank(     $text);
+    $data = $emoji->emojiUnifiedToGoogle(       $text);
+    $data = $emoji->emojiUnifiedToHtml(         $text);
 
-        $data = emoji_unified_docomo($data);   # DoCoMo devices
-        $data = emoji_unified_kddi($data);     # KDDI & Au devices
-        $data = emoji_unified_softbank($data); # Softbank & pre-iOS6 Apple devices
-        $data = emoji_unified_google($data);   # Google Android devices
+    $data = $emoji->emojiConvert(               $text, $map);
+    $data = $emoji->emojiGetName(               $unified_cp);
 
-
-        # when displaying data to anyone else, you can use HTML
-        # to format the emoji.
-
-        $data = emoji_unified_to_html($data);
-
-        # if you want to use an editor(i.e:wysiwyg) to create the content, 
-        # you can use html_to_unified to store the unified value.
-
-        $data = emoji_html_to_unified(emoji_unified_to_html($data));
     ?>
 
-When using the HTML format, you'll also need to include the <code>emoji.css</code> file, which points 
-to the <code>emoji.png</code> image. These images come from the <a href="https://github.com/github/gemoji">gemoji</a> 
+When using the HTML format, you'll also need to include the <code>emoji.css</code> file, which points
+to the <code>emoji.png</code> image. These images come from the <a href="https://github.com/github/gemoji">gemoji</a>
 project and cover all current codepoints, except U+1F320, Shooting Star.
 
 IMPORTANT NOTE: This library currently only deals with UTF-8. If your source data is JIS
 or Shift-JIS, you're out of luck for the moment.
-
 
 ## CREDITS
 
 By Cal Henderson <cal@iamcal.com>
 
 Parser rewrite based on a fork by <a href="https://github.com/dulao5">&#26460;&#24535;&#21018;</a>
+Generator rewrite by Benjamin De Almeida or Anteiros https://github.com/Ant3iros
 
 This work is dual-licensed under the GPL v3 and the MIT license.
 
