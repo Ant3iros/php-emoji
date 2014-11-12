@@ -59,7 +59,7 @@ or Shift-JIS, you're out of luck for the moment.
 By Cal Henderson <cal@iamcal.com>
 
 Parser rewrite based on a fork by <a href="https://github.com/dulao5">&#26460;&#24535;&#21018;</a>
-Generator rewrite by Benjamin De Almeida or Anteiros https://github.com/Ant3iros
+Generator rewrite by Benjamin De Almeida or Ant3iros https://github.com/Ant3iros
 
 This work is dual-licensed under the GPL v3 and the MIT license.
 
