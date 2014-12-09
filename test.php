@@ -1,5 +1,5 @@
-<?
-include('emoji2.php');
+<?php
+include('emoji.php');
 
 header('Content-type: text/plain; charset=UTF-8');
 

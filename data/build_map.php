@@ -55,6 +55,7 @@
     $contents .= "\t#   Do not modify it manually.          #\n";
     $contents .= "\t#########################################\n";
     $contents .= "\n\n";
+    $contents .= "\n\n";
 
     #
     # Start Emoji Class
